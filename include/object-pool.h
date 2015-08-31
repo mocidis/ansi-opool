@@ -1,7 +1,6 @@
 #ifndef _ANSI_OBJECT_POOL_H_
 #define _ANSI_OBJECT_POOL_H_
 #include <pthread.h>
-#include <pjlib.h>
 #include <stdio.h>      /* printf, scanf, NULL */
 #include <stdlib.h>     /* calloc, exit, free */
 
