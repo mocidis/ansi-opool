@@ -22,7 +22,7 @@ $(APP): $(C_SRCS:.c=.o) $(OPOOL_SRCS:.c=.o) $(MAIN_SRCS:.c=.o)
 $(C_SRCS:.c=.o): %.o: $(C_DIR)/src/%.c
 	gcc -o $@ -c $< $(CFLAGS)
 
-$(MAIN_SRCS:.c=.o): %.o: $(MAIN_DIR)/src/%.c
+$(MAIN_SRCS:.c=.o): %.o: $(MAIN_DIR)/test/%.c
 	gcc -o $@ -c $< $(CFLAGS)
 
 $(OPOOL_SRCS:.c=.o): %.o: $(OPOOL_DIR)/src/%.c
