@@ -18,14 +18,15 @@ opool_item_t *opool_get(opool_t *p_opool) {
 	pthread_mutex_lock(&p_opool->mutex);
 
 	if(p_opool->count == p_opool->capacity) {
-		PJ_LOG(1, (__FILE__, "object pool is full"));
+		printf( "object pool is full");
 	}
 	else {
 		do {
-			i = pj_rand() % p_opool->capacity;
+			srand (time(NULL));
+			i = rand() % p_opool->capacity + 1;
 			p_item = &(p_opool->items[i]);
 		} while(p_item->is_used);
-		PJ_LOG(4, (__FILE__, "Pick object at idx:%d", i));
+	//	printf("Pick object at idx:%d", i);
 		p_item->is_used = 1;
 		++(p_opool->count);
 	}
