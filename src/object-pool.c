@@ -23,10 +23,12 @@ opool_item_t *opool_get(opool_t *p_opool) {
 	else {
 		do {
 			srand (time(NULL));
-			i = rand() % p_opool->capacity + 1;
+			i = rand() % p_opool->capacity;
 			p_item = &(p_opool->items[i]);
 		} while(p_item->is_used);
-	//	printf("Pick object at idx:%d", i);
+
+		printf("Pick object at idx:%d\n", i);
+
 		p_item->is_used = 1;
 		++(p_opool->count);
 	}
